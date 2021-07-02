@@ -7,10 +7,10 @@
     
     if($res==TRUE) {
         $_SESSION['delete'] = "<div class='success'>Admin Deleted successfully</div>";
-        header('Location:'.SITEURL.'admin/manage-admin.php');
+        header('Location: manage-admin.php');
     } else {
         $_SESSION['delete'] = "<div class='error'>Failed to delete, please try again later</div>";
-        header('Location:'.SITEURL.'admin/manage-admin.php');
+        header('Location: manage-admin.php');
     }
 
 ?>

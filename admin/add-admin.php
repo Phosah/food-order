@@ -40,22 +40,24 @@
     if(isset($_POST["submit"])) {
         $fullname = $_POST["full_name"];
         $username = $_POST["username"];
-        $password = md5($_POST["password"]);
+        $password = $_POST["password"];
+        // $password = md5($_POST["password"]);
 
         $sql = "INSERT INTO tbl_admin SET 
             full_name='$fullname',
             username='$username',
             password='$password'
             ";
+            var_dump($sql);
+        echo "connected";
 
-        $res = mysqli_query($conn, $sql) or die(mysqli_error());
-
+        $res = mysqli_query($conn, $sql);
         if($res==TRUE) {
              $_SESSION['add'] = "Admin added Successfully";
-             header("location:" .SITEURL.'admin/manage-admin.php');
+             header("location: manage-admin.php");
             } else {            
                 $_SESSION['add'] = "Failed to Add Admin";
-                header("location:" .SITEURL.'admin/add-admin.php');
+                header("location: add-admin.php");
         }
     }
 ?>
