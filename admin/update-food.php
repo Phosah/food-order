@@ -124,10 +124,10 @@
                 if(isset($_FILES['image']['name'])) {
                     $image_name = $_FILES['image']['name'];
                     if($image_name != "" ) {
-                        $tmp = explode('.', $image_name);
-                        $ext = end($tmp);
+                        $sep = explode('.', $image_name);
+                        $ext = end($sep);
                         $image_name = "food-name-".rand(0000, 9999).".".$ext;
-                        echo $image_name;
+                        // echo $image_name;
                         $src_path = $_FILES['image']['tmp_name'];
                         $dst_path = "../images/food/".$image_name;
                         $upload = move_uploaded_file($src_path, $dst_path);
@@ -138,9 +138,10 @@
                         }
 
                         if ($current_image != "") {
-                            echo $current_image;
+                            // echo $current_image;
                             $remove_path = "../images/food/".$current_image;
                             $remove = unlink($remove_path);
+                            // echo $remove;
 
                             if($remove == false) {
                                 $_SESSION['remove-failed'] = "<div class='error'>Failed to remove current image</div>";

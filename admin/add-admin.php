@@ -38,9 +38,9 @@
 
 <?php
     if(isset($_POST["submit"])) {
-        $fullname = $_POST["full_name"];
-        $username = $_POST["username"];
-        $password = $_POST["password"];
+        $fullname = mysqli_real_escape_string($conn, $_POST["full_name"]);
+        $username = mysqli_real_escape_string($conn, $_POST["username"]);
+        $password = mysqli_real_escape_string($conn, $_POST["password"]);
         // $password = md5($_POST["password"]);
 
         $sql = "INSERT INTO tbl_admin SET 

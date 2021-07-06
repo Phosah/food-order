@@ -41,8 +41,7 @@
 
 <?php 
     if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = mysqli_real_escape_string($conn, $_POST['username']);$password = mysqli_real_escape_string($conn, $_POST['password']);
 
         $sql = "SELECT * FROM tbl_admin WHERE username= '$username' AND password='$password'";
         $res = mysqli_query($conn, $sql);
